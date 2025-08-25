@@ -87,7 +87,7 @@ html, body {
 }
 
 footer {
-    position: absolute; 
+    position: relative; 
     bottom: 0;
     left: 0;
     width: 100%; 
@@ -97,8 +97,13 @@ footer {
 
 .me{
     color: aliceblue;
-    font-size: 18px;
+    font-size: 30px;
     margin: 20px;
+    margin-top: 0px;
+    margin-bottom:20px;
+    padding: 20px;
+    text-align: justify;
 
 }
+
 

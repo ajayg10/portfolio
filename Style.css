@@ -88,13 +88,17 @@ body {
 }
 
 footer {
+  display: flex;
+  justify-content:flex-start;
   position: relative;
   bottom: 0;
   left: 0;
   width: 100%;
   background-color: aqua;
 }
-
+footer a{
+  margin-left: 10px ;
+}
 .me {
   color: aliceblue;
   font-size: 30px;

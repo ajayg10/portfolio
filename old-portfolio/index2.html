@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajay Garg | Forged by Logic</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* --- Variables & Reset --- */
+        :root {
+            --charcoal: #0c0a08;
+            --deep-grey: #1a1816;
+            --parchment: #efe6d6;
+            --gold: #b88b4a;
+            --gold-dim: #8c6a38;
+            --crimson: #7b1919;
+            --font-heading: 'Cinzel', serif;
+            --font-body: 'Inter', sans-serif;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { background-color: var(--charcoal); color: var(--parchment); font-family: var(--font-body); line-height: 1.6; overflow-x: hidden; }
+
+        /* --- Typography --- */
+        h1, h2, h3 { font-family: var(--font-heading); letter-spacing: 1px; color: var(--parchment); }
+        h2.section-title { text-align: center; font-size: 2.5rem; margin-bottom: 3rem; color: var(--gold); text-shadow: 0 2px 4px rgba(0,0,0,0.5); position: relative; display: inline-block; left: 50%; transform: translateX(-50%); }
+        h2.section-title::after { content: ''; display: block; width: 60px; height: 3px; background: var(--crimson); margin: 10px auto 0; }
+
+        /* --- Navigation --- */
+        .navbar { position: fixed; top: 0; width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 5%; background: rgba(12, 10, 8, 0.95); backdrop-filter: blur(10px); z-index: 1000; border-bottom: 1px solid rgba(184, 139, 74, 0.2); }
+        .logo { font-family: var(--font-heading); font-size: 1.8rem; color: var(--gold); font-weight: 800; }
+        .nav-links { display: flex; list-style: none; gap: 2rem; }
+        .nav-links a { color: var(--parchment); text-decoration: none; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; transition: color 0.3s ease; }
+        .nav-links a:hover { color: var(--gold); }
+        .hamburger { display: none; cursor: pointer; }
+
+        /* --- Hero Section --- */
+        #hero { height: 100vh; position: relative; display: flex; justify-content: center; align-items: center; text-align: center; overflow: hidden; }
+        .hero-bg { position: absolute; top: 0; left: 0; width: 100%; height: 120%; background: url('https://images.unsplash.com/photo-1519074069444-1ba4fff66d16?q=80&w=2574&auto=format&fit=crop') no-repeat center center/cover; z-index: -2; }
+        .overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(12,10,8,0.3), rgba(12,10,8,1)); z-index: -1; }
+        .profile-frame { width: 160px; height: 160px; margin: 0 auto 1.5rem; border-radius: 50%; border: 3px solid var(--gold); padding: 5px; box-shadow: 0 0 20px rgba(184, 139, 74, 0.3); }
+        .profile-img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; filter: sepia(20%); }
+        .royal-title { font-size: 4rem; color: var(--parchment); margin-bottom: 0.5rem; text-shadow: 2px 2px 4px #000; }
+        .tagline { font-size: 1.2rem; color: var(--gold); margin-bottom: 2rem; font-style: italic; }
+
+        /* --- Buttons --- */
+        .btn { display: inline-block; padding: 0.8rem 2rem; margin: 0 0.5rem; text-decoration: none; text-transform: uppercase; font-family: var(--font-heading); font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease; border: 1px solid transparent; }
+        .btn.primary { background-color: var(--gold); color: var(--charcoal); border-color: var(--gold); }
+        .btn.primary:hover { background-color: var(--gold-dim); border-color: var(--gold-dim); transform: translateY(-2px); }
+        .btn.secondary { background-color: transparent; color: var(--gold); border-color: var(--gold); }
+        .btn.secondary:hover { background-color: rgba(184, 139, 74, 0.1); color: var(--parchment); }
+        .btn.outline { color: var(--parchment); border: 1px solid rgba(239, 230, 214, 0.3); }
+        .btn.outline:hover { border-color: var(--parchment); }
+
+        /* --- Layout & Grid --- */
+        .section-padding { padding: 6rem 1.5rem; }
+        .container { max-width: 1100px; margin: 0 auto; }
+        .about-grid { display: grid; grid-template-columns: 3fr 2fr; gap: 3rem; align-items: center; }
+        .highlight-text { margin-top: 1.5rem; padding-left: 1rem; border-left: 3px solid var(--crimson); font-style: italic; color: #ccc; }
+        .stat-card { background: var(--deep-grey); padding: 1.5rem; margin-bottom: 1rem; border: 1px solid rgba(184, 139, 74, 0.2); text-align: center; border-radius: 4px; }
+        .stat-card h3 { color: var(--gold); font-size: 1.5rem; }
+
+        /* --- Skills --- */
+        .dark-bg { background-color: #080605; }
+        .skills-category { margin-bottom: 3rem; text-align: center; }
+        .skills-category h3 { margin-bottom: 1.5rem; font-size: 1.3rem; color: var(--parchment); }
+        .skills-category h3 i { color: var(--gold); margin-right: 10px; }
+        .skill-badges { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; }
+        .seal { background: linear-gradient(145deg, #1a1816, #0c0a08); border: 1px solid var(--gold-dim); color: var(--gold); padding: 0.8rem 1.5rem; border-radius: 50px; font-family: var(--font-heading); font-size: 0.9rem; box-shadow: 0 4px 6px rgba(0,0,0,0.3); transition: transform 0.3s; }
+        .seal:hover { transform: scale(1.05); border-color: var(--gold); box-shadow: 0 0 10px rgba(184, 139, 74, 0.2); }
+
+        /* --- Projects --- */
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .project-card { background: var(--deep-grey); border: 1px solid rgba(255,255,255,0.05); padding: 2rem; transition: transform 0.3s ease, border-color 0.3s; position: relative; overflow: hidden; }
+        .project-card::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--gold-dim); transition: height 0.3s; }
+        .project-card:hover { transform: translateY(-5px); border-color: var(--gold-dim); }
+        .project-card h3 { margin-bottom: 0.5rem; color: var(--parchment); }
+        .tech-stack span { display: inline-block; font-size: 0.75rem; color: #888; background: rgba(255,255,255,0.05); padding: 2px 8px; margin-right: 5px; margin-top: 10px; border-radius: 3px; }
+        .github-link { display: inline-block; margin-top: 1.5rem; color: var(--gold); text-decoration: none; font-weight: bold; font-size: 0.9rem; }
+        .github-link:hover { text-decoration: underline; }
+
+        /* --- Resume & Contact --- */
+        .parchment-bg { background-color: #161412; border-top: 1px solid var(--gold-dim); border-bottom: 1px solid var(--gold-dim); }
+        .center-text { text-align: center; }
+        .resume-frame { border: 2px solid var(--gold); padding: 3rem; display: inline-block; background: rgba(12, 10, 8, 0.8); margin-top: 2rem; }
+        .resume-icon { font-size: 3rem; color: var(--parchment); margin-bottom: 1rem; }
+        .contact-wrapper { max-width: 600px; margin: 0 auto; text-align: center; }
+        .social-sigils { display: flex; justify-content: center; gap: 2rem; margin-bottom: 3rem; }
+        .sigil { width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: var(--deep-grey); color: var(--gold); font-size: 1.5rem; border: 1px solid var(--gold-dim); transition: all 0.3s; text-decoration: none; }
+        .sigil:hover { background: var(--gold); color: var(--charcoal); box-shadow: 0 0 15px var(--gold); }
+        .input-group { margin-bottom: 1.5rem; }
+        input, textarea { width: 100%; padding: 1rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: var(--parchment); font-family: var(--font-body); font-size: 1rem; }
+        input:focus, textarea:focus { outline: none; border-color: var(--gold); background: rgba(0,0,0,0.2); }
+        .full-width { width: 100%; }
+        footer { background: black; padding: 2rem; text-align: center; font-size: 0.9rem; color: #666; }
+
+        /* --- Animations --- */
+        .fade-in { animation: fadeIn 1.5s ease-out forwards; opacity: 0; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        @media (max-width: 768px) {
+            .navbar { padding: 1rem; }
+            .nav-links { position: absolute; right: 0; top: 60px; background: #0c0a08; flex-direction: column; width: 100%; text-align: center; padding: 2rem 0; transform: translateY(-150%); transition: transform 0.4s ease; border-bottom: 1px solid var(--gold-dim); }
+            .nav-links.active { transform: translateY(0); }
+            .hamburger { display: block; }
+            .bar { display: block; width: 25px; height: 3px; margin: 5px auto; background-color: var(--parchment); }
+            .royal-title { font-size: 2.5rem; }
+            .about-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="C:\Users\Ajay\OneDrive\Desktop\AG.png" alt="AG" style="width:60px; border-radius:30px ; height:60px; vertical-align: middle; margin-right: 10px;">
+        </div>
+        <ul class="nav-links">
+            <li><a href="#about">Origins</a></li>
+            <li><a href="#skills">Arsenal</a></li>
+            <li><a href="#projects">Creations</a></li>
+            <li><a href="#resume">Scrolls</a></li>
+            <li><a href="#contact">Raven</a></li>
+        </ul>
+        <div class="hamburger">
+            <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+        </div>
+    </nav>
+
+    <header id="hero">
+        <div class="hero-bg"></div>
+        <div class="overlay"></div>
+        <div class="hero-content fade-in">
+            <div class="profile-frame">
+                <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Ajay" alt="Ajay Garg" class="profile-img">
+            </div>
+            <h1 class="royal-title">Ajay Garg</h1>
+            <p class="tagline">Forged by Logic. Architect of the Cloud.</p>
+            <div class="hero-buttons">
+                <a href="#about" class="btn primary">Who I Am</a>
+                <a href="#resume" class="btn secondary">My Resume</a>
+                <a href="#contact" class="btn outline">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="about" class="section-padding">
+        <div class="container">
+            <h2 class="section-title">The Architect</h2>
+            <div class="about-grid">
+                <div class="about-text reveal">
+                    <p>I am a 22-year-old disciplinarian and a 3rd-year Computer Science Engineer specializing in <strong>Cloud Computing</strong>. Like a smith forging steel, I believe in the relentless refinement of skill and the systematic application of logic.</p>
+                    <p>My path is one of constant ascent. Currently preparing for <strong>GATE 2026</strong> while mastering the Full-Stack spectrum, I build systems that are robust, scalable, and efficient.</p>
+                    <p class="highlight-text">"From designing database architectures to exploring waterless skincare innovations, my ambition knows no bounds."</p>
+                </div>
+                <div class="about-stats reveal">
+                    <div class="stat-card"><h3>3rd Year</h3><span>B.Tech CSE</span></div>
+                    <div class="stat-card"><h3>Focus</h3><span>Cloud & DSA</span></div>
+                    <div class="stat-card"><h3>Vision</h3><span>System Design</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="section-padding dark-bg">
+        <div class="container">
+            <h2 class="section-title">The Arsenal</h2>
+            <div class="skills-category reveal">
+                <h3><i class="fas fa-code"></i> Full-Stack Development</h3>
+                <div class="skill-badges"><span class="seal">Python</span><span class="seal">Flask</span><span class="seal">React</span><span class="seal">Node.js</span></div>
+            </div>
+            <div class="skills-category reveal">
+                <h3><i class="fas fa-server"></i> Core Computer Science</h3>
+                <div class="skill-badges"><span class="seal">DSA (Java)</span><span class="seal">DBMS</span><span class="seal">OS</span><span class="seal">Comp. Networks</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="section-padding">
+        <div class="container">
+            <h2 class="section-title">Forged Creations</h2>
+            <div class="projects-grid">
+                <div class="project-card reveal">
+                    <div class="card-content">
+                        <h3>Auction System</h3>
+                        <p>Real-time bidding platform handling concurrent requests.</p>
+                        <div class="tech-stack"><span>React</span><span>Node</span><span>Socket.io</span></div>
+                        <a href="#" class="github-link"><i class="fab fa-github"></i> View Code</a>
+                    </div>
+                </div>
+                <div class="project-card reveal">
+                    <div class="card-content">
+                        <h3>E-Commerce Platform</h3>
+                        <p>Scalable full-stack app with secure payment gateways.</p>
+                        <div class="tech-stack"><span>MERN</span><span>Redux</span><span>Stripe</span></div>
+                        <a href="#" class="github-link"><i class="fab fa-github"></i> View Code</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="resume" class="section-padding parchment-bg">
+        <div class="container center-text">
+            <h2 class="section-title dark-text">The Chronicles</h2>
+            <div class="resume-frame reveal">
+                <i class="fas fa-scroll resume-icon"></i>
+                <p class="resume-desc">A detailed record of my academic standing and skills.</p>
+                <div class="resume-actions">
+                    <a href="#" class="btn primary">Open Scroll</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section-padding">
+        <div class="container">
+            <h2 class="section-title">Send a Raven</h2>
+            <div class="contact-wrapper reveal">
+                <div class="social-sigils">
+                    <a href="#" class="sigil"><i class="fab fa-github"></i></a>
+                    <a href="#" class="sigil"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="sigil"><i class="fas fa-envelope"></i></a>
+                </div>
+                <form class="contact-form">
+                    <div class="input-group"><input type="text" placeholder="Your Name" required></div>
+                    <div class="input-group"><input type="email" placeholder="Your Email" required></div>
+                    <div class="input-group"><textarea placeholder="Your Message" rows="5" required></textarea></div>
+                    <button type="submit" class="btn primary full-width">Dispatch Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer><p>&copy; 2025 Ajay Garg. Forged in Code & Discipline.</p></footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+            hamburger.addEventListener('click', () => { navLinks.classList.toggle('active'); });
+            document.querySelectorAll('.nav-links a').forEach(link => { link.addEventListener('click', () => { navLinks.classList.remove('active'); }); });
+
+            const revealElements = document.querySelectorAll('.reveal');
+            const revealOnScroll = () => {
+                const windowHeight = window.innerHeight;
+                revealElements.forEach((reveal) => {
+                    const elementTop = reveal.getBoundingClientRect().top;
+                    if (elementTop < windowHeight - 150) { reveal.classList.add('active'); }
+                });
+            };
+            window.addEventListener('scroll', revealOnScroll);
+            revealOnScroll();
+
+            const heroBg = document.querySelector('.hero-bg');
+            window.addEventListener('scroll', () => {
+                const scrollPosition = window.pageYOffset;
+                if (scrollPosition < 800) { heroBg.style.transform = `translateY(${scrollPosition * 0.5}px)`; }
+            });
+        });
+    </script>
+</body>
+</html>

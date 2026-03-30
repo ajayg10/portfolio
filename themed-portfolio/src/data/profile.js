@@ -1,4 +1,5 @@
 import { Code, Brush, Zap, Map, Database, Cloud } from 'lucide-react';
+import resumePdf from '../assets/Resume.pdf';
 
 const profile = {
   name: "Ajay Garg",
@@ -17,7 +18,7 @@ const profile = {
     "3rd-year B.Tech in Computer Science (Cloud Computing specialization)",
   interests:
     "When I'm not coding, you'll find me exploring fantasy literature, playing strategy games, or contributing to open-source projects.",
-  resumeUrl: "https://example.com/resume.pdf",
+  resumeUrl: resumePdf,
   social: {
     github: "https://github.com/ajayg10",
     linkedin: "https://www.linkedin.com/in/ajay-garg-647838301",

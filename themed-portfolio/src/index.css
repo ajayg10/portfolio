@@ -859,3 +859,328 @@ h1, h2, h3, h4, h5, h6 {
   min-height: 100vh;
   transition: background-color 0.5s ease, color 0.5s ease;
 }
+
+/* ============================================================
+   MOBILE RESPONSIVE — SMALL SCREENS (max-width: 480px)
+   ============================================================ */
+@media (max-width: 480px) {
+  /* Navbar */
+  .navbar__inner {
+    padding: 0 0.75rem;
+    height: 56px;
+  }
+
+  .navbar__logo {
+    height: 32px;
+  }
+
+  /* Hero */
+  .hero {
+    padding-top: 56px;
+    min-height: 100svh; /* safe viewport height for mobile browsers */
+  }
+
+  .hero__content {
+    gap: 1.25rem;
+    padding: 0.5rem;
+  }
+
+  .hero__profile-img-wrapper {
+    width: 8rem;
+    height: 8rem;
+    border-width: 3px;
+    outline-width: 3px;
+    outline-offset: 3px;
+  }
+
+  .hero__corner {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+
+  .hero__corner--tl { top: -0.5rem; left: -0.5rem; }
+  .hero__corner--tr { top: -0.5rem; right: -0.5rem; }
+  .hero__corner--bl { bottom: -0.5rem; left: -0.5rem; }
+  .hero__corner--br { bottom: -0.5rem; right: -0.5rem; }
+
+  .hero__name {
+    font-size: clamp(1.8rem, 10vw, 2.8rem);
+  }
+
+  .hero__tagline {
+    font-size: clamp(0.7rem, 3vw, 1rem);
+    letter-spacing: 0.1em;
+  }
+
+  .hero__buttons {
+    flex-direction: column;
+    width: 100%;
+    padding: 0 1rem;
+    gap: 0.75rem;
+  }
+
+  .hero__buttons .btn {
+    width: 100%;
+    justify-content: center;
+    padding: 0.75rem 1rem;
+    font-size: 0.8rem;
+  }
+
+  .hero__scroll-indicator {
+    bottom: 1rem;
+  }
+
+  /* Sections */
+  .section {
+    padding: 3rem 0.75rem;
+  }
+
+  .section__header {
+    margin-bottom: 2rem;
+  }
+
+  .section__title {
+    font-size: clamp(1.3rem, 6vw, 1.8rem);
+    letter-spacing: 0.05em;
+  }
+
+  /* Cards */
+  .card {
+    padding: 1.25rem;
+    border-radius: 10px;
+  }
+
+  .card--large {
+    padding: 1.5rem;
+    gap: 1.5rem;
+  }
+
+  .card__title {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+
+  .card__text {
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+
+  .section__content-stack {
+    gap: 1.5rem;
+  }
+
+  /* Skills */
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+
+  .skill-item {
+    padding: 0.75rem 0.5rem;
+    gap: 0.35rem;
+  }
+
+  .skill-item__icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .skill-item__label {
+    font-size: 0.7rem;
+  }
+
+  /* Buttons */
+  .btn--large {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.85rem;
+  }
+
+  /* Social Grid */
+  .social-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+
+  .social-card {
+    padding: 1rem;
+    gap: 0.5rem;
+  }
+
+  .social-card__icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .social-card__label {
+    font-size: 0.65rem;
+  }
+
+  /* Footer */
+  .footer {
+    padding: 1.25rem 0;
+  }
+
+  .footer__copyright {
+    font-size: 0.72rem;
+  }
+
+  .footer__quote {
+    font-size: 0.65rem;
+  }
+
+  /* Theme Switcher — critical mobile fix */
+  .theme-switcher {
+    bottom: 1rem;
+    right: 1rem;
+  }
+
+  .theme-switcher__fab {
+    width: 48px;
+    height: 48px;
+  }
+
+  .theme-switcher__fab-icon {
+    font-size: 1.25rem;
+  }
+
+  .theme-switcher__panel {
+    bottom: 60px;
+    right: -0.5rem;
+    min-width: 200px;
+    max-height: 70vh;
+    overflow-y: auto;
+    padding: 0.5rem;
+  }
+
+  .theme-switcher__option {
+    padding: 0.5rem 0.6rem;
+    gap: 0.5rem;
+  }
+
+  .theme-switcher__option-name {
+    font-size: 0.78rem;
+  }
+
+  .theme-switcher__option-icon {
+    font-size: 1rem;
+  }
+}
+
+/* ============================================================
+   MOBILE RESPONSIVE — MEDIUM PHONES (max-width: 640px)
+   ============================================================ */
+@media (max-width: 640px) and (min-width: 481px) {
+  .hero__profile-img-wrapper {
+    width: 10rem;
+    height: 10rem;
+  }
+
+  .hero__buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .hero__buttons .btn {
+    width: 80%;
+    justify-content: center;
+  }
+
+  .section {
+    padding: 3.5rem 1rem;
+  }
+
+  .card {
+    padding: 1.5rem;
+  }
+
+  .card--large {
+    padding: 2rem;
+  }
+
+  /* Theme Switcher */
+  .theme-switcher {
+    bottom: 1rem;
+    right: 1rem;
+  }
+
+  .theme-switcher__fab {
+    width: 50px;
+    height: 50px;
+  }
+
+  .theme-switcher__panel {
+    bottom: 64px;
+    min-width: 210px;
+  }
+}
+
+/* ============================================================
+   TABLET RESPONSIVE (max-width: 768px)
+   ============================================================ */
+@media (max-width: 768px) {
+  .social-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero__content {
+    gap: 1.5rem;
+  }
+
+  /* Ensure 3D scroll animations are toned down for performanc on mobile */
+  [data-scroll-type="fade-up"] {
+    transform: perspective(800px) translateY(50px) rotateX(8deg);
+  }
+
+  [data-scroll-type="fade-left"] {
+    transform: perspective(800px) translateX(-60px) rotateY(10deg);
+  }
+
+  [data-scroll-type="fade-right"] {
+    transform: perspective(800px) translateX(60px) rotateY(-10deg);
+  }
+
+  [data-scroll-type="zoom-rotate"] {
+    transform: perspective(800px) scale(0.8) rotate3d(1, 1, 0, 12deg);
+  }
+
+  [data-scroll-type="flip-in"] {
+    transform: perspective(800px) rotateY(40deg);
+  }
+}
+
+/* ============================================================
+   LANDSCAPE PHONE FIX
+   ============================================================ */
+@media (max-height: 500px) and (orientation: landscape) {
+  .hero {
+    min-height: auto;
+    padding: 80px 1rem 2rem;
+  }
+
+  .hero__profile-img-wrapper {
+    width: 6rem;
+    height: 6rem;
+  }
+
+  .hero__content {
+    gap: 1rem;
+  }
+
+  .hero__scroll-indicator {
+    display: none;
+  }
+}
+
+/* ============================================================
+   ENSURE THEME SWITCHER IS ALWAYS CLICKABLE (ALL SIZES)
+   ============================================================ */
+.theme-switcher {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+.theme-switcher__fab {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}

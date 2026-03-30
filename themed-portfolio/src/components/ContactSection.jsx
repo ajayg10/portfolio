@@ -31,14 +31,14 @@ export default function ContactSection({ profile }) {
           <div className="social-grid">
             {socialIcons.map(({ key, icon: Icon, label, isEmail }, index) => {
               const href = isEmail
-                ? `mailto:${profile.social[key]}`
+                ? `https://mail.google.com/mail/?view=cm&to=${profile.social[key]}&su=Hello%20Ajay`
                 : profile.social[key];
               return (
                 <a
                   key={key}
                   href={href}
-                  target={isEmail ? undefined : '_blank'}
-                  rel={isEmail ? undefined : 'noopener noreferrer'}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="social-card"
                   aria-label={label}
                   data-scroll-reveal
